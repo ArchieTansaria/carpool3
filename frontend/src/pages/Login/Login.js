@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -6,6 +7,8 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [message, setMessage] = useState("");
+
+	const navigate = useNavigate();
 
 	// Function to handle form submission
 	const handleSubmit = async (e) => {
@@ -29,6 +32,7 @@ const Login = () => {
 				setMessage(`Login successful! User ID: ${result.userId}`);
 				// Optionally store userId or token in localStorage or state
 				// localStorage.setItem('userId', result.userId);
+				navigate("/");
 			} else if (response.status === 404) {
 				// User not found
 				setMessage(result.message);
