@@ -1,17 +1,14 @@
-// models/User.js
-
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-   name : {
-    type : String,
-    required: true
-   },
+    name: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
         unique: true,
-        trim: true,
     },
     password: {
         type: String,
@@ -30,25 +27,9 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     pickupTime: {
-        type: String,
+        type: String, // You can use Date type if you prefer
         required: true,
-    },
-    location: {
-        type: {
-            type: String,
-            enum: ['Point'], // 'location.type' must be 'Point'
-            required: true,
-        },
-        coordinates: {
-            type: [Number], // [longitude, latitude]
-            required: true,
-        },
     },
 });
 
-// Create a 2dsphere index for geolocation queries
-userSchema.index({ location: '2dsphere' });
-
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);

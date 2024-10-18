@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const rideSchema = new mongoose.Schema({
-    carpoolId: { type: mongoose.Schema.Types.ObjectId, ref: 'Carpool', required: true },
-    rideStatus: { type: String, enum: ['pending', 'active', 'completed'], default: 'pending' },
-    driverId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-});
+    driver: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    passengers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    commuteFrom: { type: String, required: true },
+    commuteTo: { type: String, required: true },
+    pickupTime: { type: Date, required: true },
+    status: { type: String, default: 'open' }, // can be 'open', 'closed', 'in-progress'
+}, { timestamps: true });
 
-module.exports = mongoose.model('Ride', rideSchema);
+const Ride = mongoose.model('Ride', rideSchema);
+module.exports = Ride;
+
