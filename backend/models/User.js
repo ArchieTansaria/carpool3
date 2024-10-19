@@ -1,35 +1,36 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    designation: {
-        type: String,
-        required: true,
-    },
-    commuteFrom: {
-        type: String,
-        required: true,
-    },
-    commuteTo: {
-        type: String,
-        required: true,
-    },
-    pickupTime: {
-        type: String, // You can use Date type if you prefer
-        required: true,
-    },
+  name: {
+      type: String,
+      required: false, // Changed to optional
+  },
+  email: {
+      type: String,
+      required: true,
+      unique: true,
+  },
+  password: {
+      type: String,
+      required: true,
+  },
+  designation: {
+      type: String,
+      required: false, // Changed to optional
+  },
+  commuteFrom: {
+      type: String,
+      required: false, // Changed to optional
+  },
+  commuteTo: {
+      type: String,
+      required: false, // Changed to optional
+  },
+  pickupTime: {
+      type: String, // You can use Date type if you prefer
+      required: false, // Changed to optional
+  },
 });
+
 
 module.exports = mongoose.model('User', userSchema);

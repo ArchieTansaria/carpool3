@@ -47,20 +47,31 @@ router.post('/login', async (req, res) => {
 
 // Profile Setup Route
 router.put('/profile', async (req, res) => {
-    const { userId, designation, commuteFrom, commuteTo, pickupTime } = req.body;
+  const { email, name, designation, commuteFrom, commuteTo, pickupTime } = req.body;
 
-    try {
-        const updatedUser = await User.findByIdAndUpdate(
-            userId,
-            { designation, commuteFrom, commuteTo, pickupTime },
-            { new: true }
-        );
-        if (!updatedUser) return res.status(404).json({ error: 'User not found!' });
+  try {
+      // Find the user by email (or another unique identifier)
+      const user = await User.findOne({ email });
+      if (!user) {
+          return res.status(404).json({ error: 'User not found!' });
+      }
 
-        res.status(200).json({ message: 'Profile updated successfully!', user: updatedUser });
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
+      // Update user details
+      user.name = name;
+      user.designation = designation;
+      user.commuteFrom = commuteFrom;
+      user.commuteTo = commuteTo;
+      user.pickupTime = pickupTime;
+
+      await user.save(); // Save the updated user
+
+      res.status(200).json({
+          message: 'Profile updated successfully!',
+          user,
+      });
+  } catch (error) {
+      res.status(400).json({ error: error.message });
+  }
 });
 
 module.exports = router;
