@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import API_URL from "../../config";
+// import API_URL from "../../config";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
 
 		try {
 			// Sending data to the backend (replace URL with your actual backend login route)
-			const response = await fetch(`${API_URL}/login`, {
+			const response = await fetch(`api/users/login`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -81,7 +81,7 @@ const Login = () => {
 					<button
 						type="button"
 						className="new-user-btn"
-						onClick={() => navigate("/register")}
+						onClick={() => navigate("/api/users/register")}
 					>
 						New user
 					</button>

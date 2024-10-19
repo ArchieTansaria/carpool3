@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Signup.css";
-import API_URL from "../../config";
-// import { useNavigate } from "react-router-dom";
+// import API_URL from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
 	const [email, setEmail] = useState("");
@@ -10,6 +10,7 @@ const Signup = () => {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [error, setError] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -22,7 +23,7 @@ const Signup = () => {
 		}
 
 		try {
-			const response = await axios.post(`${API_URL}/register`, {
+			const response = await axios.post(`api/users/register`, {
 				email,
 				password,
 			});
@@ -78,9 +79,12 @@ const Signup = () => {
 					{successMessage && (
 						<p className="success-message">{successMessage}</p>
 					)}
-					<button type="submit" className="create-btn">
-						{" "}
-						//TODO navigate to profile route Create Account
+					<button
+						type="submit"
+						className="create-btn"
+						onClick={() => navigate("/api/users/profile")}
+					>
+						Create Account
 					</button>
 				</form>
 			</div>

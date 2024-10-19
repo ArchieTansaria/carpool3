@@ -1,0 +1,95 @@
+.details-container {
+	background-color: rgba(255, 255, 255, 0.95);
+	/* Slightly transparent white for the container */
+	margin: 120px;
+	padding: 40px;
+	left: 28%;
+	position: relative;
+	border-radius: 12px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	width: 400px;
+	text-align: center;
+	transform: scale(0.97);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-container:hover {
+	transform: translateY(-10px);
+	/* Lifts the container slightly */
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+	/* Increases the shadow on hover */
+}
+
+h1 {
+	margin-bottom: 20px;
+	color: #009379;
+	/* Teal for the heading */
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.form-group {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+label {
+	display: block;
+	font-size: 16px;
+	margin-bottom: 5px;
+	color: #333;
+	/* Neutral dark gray for labels */
+	transition: color 0.3s ease;
+}
+
+input[type="text"],
+input[type="time"],
+input[type="date"],
+input[type="number"] {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #ddd;
+	/* Light gray border */
+	border-radius: 6px;
+	font-size: 16px;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+	border-color: #009379;
+	/* Teal border when focused */
+	box-shadow: 0 0 8px rgba(0, 147, 121, 0.5);
+	/* Teal glow on focus */
+	outline: none;
+}
+
+button {
+	padding: 12px 20px;
+	background-color: #009379;
+	/* Teal button */
+	color: #fff;
+	/* White text on button */
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 18px;
+	width: 100%;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+	background-color: #007e66;
+	/* Darker teal on hover */
+	transform: translateY(-3px);
+	/* Lift effect on hover */
+}
+
+button:active {
+	background-color: #006b59;
+	/* Darkest teal on active click */
+	transform: translateY(1px);
+	/* Subtle press effect */
+}

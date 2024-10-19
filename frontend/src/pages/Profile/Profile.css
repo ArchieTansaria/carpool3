@@ -1,0 +1,119 @@
+body {
+	font: "Poppins";
+	background-color: #ffffff;
+	height: 100vh;
+	padding: 00px;
+	transition: background-color 0.5s ease;
+}
+
+.container {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-top: 30px;
+	left: 35%;
+	position: relative;
+	width: 100%;
+	max-width: 500px;
+	transform: scale(0.97);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+	transform: scale(1);
+	box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+	/* Enhanced box-shadow on hover */
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 28px;
+	color: #009379;
+	/* Main color for headings */
+	transition: color 0.5s ease;
+}
+
+h1:hover {
+	color: #007e66;
+	/* Slightly darker shade of the main color on hover */
+}
+
+.form-group {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.form-group label {
+	display: block;
+	font-size: 16px;
+	margin-bottom: 5px;
+	color: #333;
+	/* Neutral color for labels */
+	transition: color 0.3s ease;
+}
+
+.form-group input,
+.form-group select {
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	outline: none;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="time"] {
+	width: auto;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+	border-color: #009379;
+	/* Main color for border on focus */
+	box-shadow: 0 0 5px rgba(0, 147, 121, 0.5);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus::placeholder {
+	color: transparent;
+}
+
+.form-group input:focus + label,
+.form-group select:focus + label {
+	color: #009379;
+	/* Label color changes to main color on focus */
+	transform: translateY(-20px);
+	font-size: 14px;
+	font-weight: bold;
+	transition: all 0.3s ease;
+}
+
+.submit-btn {
+	width: 100%;
+	padding: 10px;
+	background-color: #009379;
+	/* Main button color */
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+	background-color: #007e66;
+	/* Slightly darker shade of the button color on hover */
+	transform: scale(1.05);
+	/* Subtle scale on hover */
+}
+
+.submit-btn:active {
+	transform: scale(1);
+	/* Return to normal size on click */
+	background-color: #006b59;
+	/* Darker shade on active click */
+}

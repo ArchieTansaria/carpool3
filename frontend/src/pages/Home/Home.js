@@ -1,8 +1,11 @@
 import React from "react";
 import "./Home.css";
 import image from "../../assets/images/hero-land-2.jpg";
+// import API_URL from "../../config";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+	const navigate = useNavigate();
 	return (
 		<section className="hero">
 			<div className="text-content">
@@ -13,8 +16,18 @@ export default function Home() {
 				</p>
 			</div>
 			<div className="buttons">
-				<button className="btn primary">🚀 Host a ride</button>
-				<button className="btn secondary">Join a ride</button>
+				<button
+					className="btn primary"
+					onClick={() => navigate(`api/users/create`)}
+				>
+					🚀 Host a ride
+				</button>
+				<button
+					className="btn secondary"
+					onClick={() => navigate(`api/users/join`)}
+				>
+					Join a ride
+				</button>
 			</div>
 			<div className="image-content">
 				<img
