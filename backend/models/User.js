@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-<<<<<<< HEAD
 	name: {
 		type: String,
 		required: false, // Changed to optional
