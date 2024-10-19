@@ -19,8 +19,8 @@ export default function App() {
 				<Route path="api/users/register" element={<Signup />} />
 				<Route path="api/users/profile" element={<ProfileSetup />} />
 				<Route path="api/users/create" element={<CreateRide />} />
+				<Route path="api/users/join" element={<Match />} />
 			</Routes>
-			<Match />
 		</Router>
 	);
 }

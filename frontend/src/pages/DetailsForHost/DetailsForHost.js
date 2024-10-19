@@ -82,7 +82,7 @@ const CreateRide = () => {
 
 				<button
 					type="submit"
-					onClick={() => navigate("/api/users/Match")}
+					onClick={() => navigate("/api/users/join")}
 				>
 					Submit Ride Details
 				</button>
