@@ -19,7 +19,12 @@ export default function Navbar() {
 				<button className="log-in" onClick={() => navigate("/login")}>
 					Log in
 				</button>
-				<button className="sign-up">Sign up</button>
+				<button
+					className="sign-up"
+					onClick={() => navigate("/register")}
+				>
+					Sign up
+				</button>
 			</div>
 		</div>
 	);
