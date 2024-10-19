@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import API_URL from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 	// State to store email and password inputs
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [message, setMessage] = useState("");
-
 	const navigate = useNavigate();
 
 	// Function to handle form submission
@@ -17,7 +17,7 @@ const Login = () => {
 
 		try {
 			// Sending data to the backend (replace URL with your actual backend login route)
-			const response = await fetch("http://localhost:5001/login", {
+			const response = await fetch(`${API_URL}/login`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -32,7 +32,6 @@ const Login = () => {
 				setMessage(`Login successful! User ID: ${result.userId}`);
 				// Optionally store userId or token in localStorage or state
 				// localStorage.setItem('userId', result.userId);
-				navigate("/");
 			} else if (response.status === 404) {
 				// User not found
 				setMessage(result.message);
@@ -71,11 +70,19 @@ const Login = () => {
 							required
 						/>
 					</div>
-					<button type="submit" className="login-btn">
+					<button
+						type="submit"
+						className="login-btn"
+						onClick={() => navigate("/")} //TODO : Provide check
+					>
 						Login
 					</button>
 
-					<button type="button" className="new-user-btn">
+					<button
+						type="button"
+						className="new-user-btn"
+						onClick={() => navigate("/register")}
+					>
 						New user
 					</button>
 				</form>
