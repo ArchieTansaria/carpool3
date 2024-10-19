@@ -29,9 +29,7 @@ const Signup = () => {
 			});
 			setSuccessMessage(response.data.message);
 		} catch (err) {
-			setError(
-				err.response?.data.message || "An error occurred during signup"
-			);
+			setError(err.response?.data.message || "");
 		}
 	};
 

@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 		required: false, // Changed to optional
 	},
 	pickupTime: {
-		type: String, // You can use Date type if you prefer
+		type: Date, // You can use Date type if you prefer
 		required: false, // Changed to optional
 	},
 });
